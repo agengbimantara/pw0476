@@ -1,0 +1,72 @@
+@font-face {
+	font-weight: 400;
+	font-style: normal;
+}
+
+@font-face {
+	font-weight: 400;
+	font-style: normal;
+}
+
+@font-face {
+	font-weight: 400;
+	font-style: italic;
+}
+
+body{
+	background: #8d7979
+	padding-top: 40px;
+	border-top: 4px solid #0695d8;
+	font: 16px, serif;
+	color: #363636;
+}
+
+a{
+	color: #079DBD;
+	text-decoration: none;
+	transition: all 0.2s ease;
+}
+
+a:hover{
+	color: red;
+}
+
+.wadah{
+	width: 80%;
+	max-width:  840px;
+	margin: 0 auto;
+}
+.kiri{
+	width: 25%;
+	float: left;
+}
+.kanan{
+	width: 70%;
+	float: right;
+}
+
+#kepala{
+	text-align: center;
+}
+
+#navigasi ul{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+#navigasi li{
+	padding: 20px 0;
+	border-bottom: 5px solid #cacaca;
+}
+.post{
+	margin-bottom: 20px;
+	background: #fff;
+	box-shadow: 0 0 9px rgba(0,0,0,0.5);
+}
+.post .title{
+	margin: 1;
+	padding: 10px;
+	padding-left: 16;
+	background: #f5f5f5;
+	border-left: 4px solid #079DBD;
+}
