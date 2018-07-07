@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <style>
+    	table{
+    		width: 100%;
+    	}
+    	td,th{
+    		padding: 8px;
+    		text-align: left;
+    	}
+    	tr:nth-child(even){
+    		background-color: #dddddd;
+    	}
+    	#jumlah{
+    		background-color: #dddddd;
+    	}
+    	.title{
+    		background-color: #82f6ff;
+    		color: #00a9ff;
+    	}
+    </style>
+</head>
+<body>
+
+    <div class="container" ng-app="ageng" ng-controller="bima"> 
+
+        <div class="title">
+            
+            <h2>{{ x.main}}</h2>
+            <h3>{{ x.sub}}</h3>
+        </div>
+
+        <table>
+        <tr>
+            <th>No</th>
+            <th>Name</th>
+            <th>Position</th>
+            <th>Start</th>
+            <th>Sallary</th>
+        </tr>
+        <tr ng-repeat="x in y">
+            <td>{{ $index + 1 }}</td>
+            <td>{{ x.name }}</td>
+            <td>{{ x.pos }}</td>
+            <td>{{ x.start }}</td>
+            <td>{{ x.sallary | currency : "US$ " : 0}}</td>
+        </tr>
+        <tr id=jumlah>
+            <th colspan="4">Total Sallary</th>
+            <td>{{ hasil() | currency : "US$ " : 0}}</td>
+        </tr>
+        </table>
+
+    </div>
+
+    <script>
+    var app = angular.module('ageng', []);
+
+    app.controller('bima', function($scope, $http) {
+        $http.get("https://api.myjson.com/bins/8nts4")
+        .then(function (response){
+            $scope.x = response.data.title;
+            $scope.y = response.data.data;
+            
+            $scope.hasil = function(){
+                var total = 0;
+                for (var agbm = 0; agbm < $scope.y.length; agbm++){
+                    var tot = $scope.y[agbm];
+                    total += (tot.sallary);
+                }
+                return total;
+            };
+
+        });
+    });
+    </script>
+
+</body>
+</html>
